@@ -6,11 +6,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.motu.common.ui.AssetInfo
 import com.example.motu.common.ui.ListBox
 import com.example.motu.common.ui.StockRow
 
@@ -24,6 +23,7 @@ fun HomeView(listState: LazyListState) {
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 12.dp)
     ) {
+        item { AssetInfo() }
         item { DomesticHoldingStocks() }
         item { ForeignHoldingStocks() }
         item { ShortSellingRanking() }
