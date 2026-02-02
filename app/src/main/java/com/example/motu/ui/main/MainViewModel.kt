@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     // ── 탭바 가시성 로직 ────────────────────────────────────────────────────────
     private val _tabBarVisible = MutableStateFlow(true)
-    val tabBarVisible: StateFlow<Boolean> = _tabBarVisible.asStateFlow()
+    val tabBarVisible: StateFlow<Boolean> = _tabBarVisible
 
     // 미세 스크롤 무시를 위한 버퍼
     private var scrollBufferPx = 0f
@@ -39,27 +39,22 @@ class MainViewModel @Inject constructor() : ViewModel() {
      * @param atTop 리스트 최상단 여부 (true면 항상 보이도록 강제)
      * @param thresholdPx 토글 임계값(px)
      */
-    fun onScrollDelta(dy: Float, atTop: Boolean, thresholdPx: Float) {
-        if (atTop) {
-            // 최상단이면 항상 보이기
-            if (!_tabBarVisible.value) _tabBarVisible.value = true
-            scrollBufferPx = 0f
-            return
-        }
-
-        scrollBufferPx += dy
-        if (abs(scrollBufferPx) > thresholdPx) {
-            when {
-                scrollBufferPx < 0 -> { // 아래로 스크롤 중 → 숨김
-                    if (_tabBarVisible.value) _tabBarVisible.value = false
-                }
-                scrollBufferPx > 0 -> { // 위로 스크롤 중 → 노출
-                    if (!_tabBarVisible.value) _tabBarVisible.value = true
-                }
+    fun onScroll(
+        dy: Float,
+        atTop: Boolean
+    ) {
+        when {
+            atTop -> {
+                // 최상단이면 무조건 보이기
+                _tabBarVisible.value = true
             }
-            scrollBufferPx = 0f
+            dy > 0 -> {
+                // 위로 끌어올리는 중 (scroll up)
+                _tabBarVisible.value = true
+            }
         }
     }
+
 
     /** 외부에서 최상단 진입을 감지했을 때 강제로 보이도록 */
     fun forceShowIfAtTop(atTop: Boolean) {
