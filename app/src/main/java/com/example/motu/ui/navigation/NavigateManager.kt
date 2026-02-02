@@ -5,10 +5,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.motu.ui.main.MainView
+import com.example.motu.ui.main.home.ui_items.domestic.DomesticDetailView
 import com.example.motu.ui.splash.SplashView
 
 @Composable
-fun MotuApp() {
+fun NavigateManager() {
     val navController = rememberNavController()
 
     NavHost(
@@ -25,7 +26,11 @@ fun MotuApp() {
             )
         }
         composable("main") {
-            MainView()
+            MainView(navController)
+        }
+
+        composable("domestic_stock_detail") {
+            DomesticDetailView()
         }
     }
 }

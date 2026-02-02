@@ -13,19 +13,20 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.example.motu.R
 import com.example.motu.common.ui.BaseImageButton
 import com.example.motu.common.ui.CommonStickyTabBar
-import com.example.motu.ui.main.home.HomeView
+import com.example.motu.ui.main.home.HomeRoute
 import com.example.motu.ui.main.rising_stock.RapidlyRisingStocks
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainView() {
+fun MainView(
+    navController: NavHostController
+) {
     val viewModel: MainViewModel = hiltViewModel()
 
     val listState = rememberLazyListState()
@@ -86,16 +87,24 @@ fun MainView() {
         ) {
             TabContent(
                 selectedIndex = viewModel.selectedTabIndex,
-                listState = listState
+                listState = listState,
+                navController
             )
         }
     }
 }
 
 @Composable
-fun TabContent(selectedIndex: Int, listState: LazyListState) {
+fun TabContent(
+    selectedIndex: Int,
+    listState: LazyListState,
+    navController: NavHostController
+) {
     when (selectedIndex) {
-        0 -> HomeView(listState)
+        0 -> HomeRoute(
+            navController = navController,
+            listState = listState
+        )
         1 -> RapidlyRisingStocks()
         2 -> Text("거래대금 상위 화면", modifier = Modifier.padding(16.dp))
         3 -> Text("AI 추천 화면", modifier = Modifier.padding(16.dp))

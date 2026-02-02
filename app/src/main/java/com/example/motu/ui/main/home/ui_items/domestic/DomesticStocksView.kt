@@ -1,4 +1,4 @@
-package com.example.motu.ui.main.home.ui_items
+package com.example.motu.ui.main.home.ui_items.domestic
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,13 +9,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.motu.common.ui.ListBox
 import com.example.motu.common.ui.StockRow
 
 @Composable
-fun DomesticHoldingStocks() {
+fun DomesticHoldingStocksView(
+    viewModel: DomesticStocksViewModel = hiltViewModel()
+) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .padding(all = 12.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -23,6 +27,9 @@ fun DomesticHoldingStocks() {
             title = "국내 보유주식",
             showMoreButton = true,
             resultTitle = "총 4종목",
+            moreButtonOnClick = {
+                viewModel.goDetail()
+            },
             resultContent = "49,124,000원"
         ) {
             StockRow("삼성전자", "005930", "10주", "74,500원", "▲ +3.4%", amount = "9,384,000원")

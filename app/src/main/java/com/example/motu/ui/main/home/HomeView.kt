@@ -7,14 +7,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.motu.ui.main.home.ui_items.AssetInfo
-import com.example.motu.ui.main.home.ui_items.DomesticHoldingStocks
 import com.example.motu.ui.main.home.ui_items.ForeignHoldingStocks
 import com.example.motu.ui.main.home.ui_items.ShortSellingRanking
+import com.example.motu.ui.main.home.ui_items.domestic.DomesticHoldingStocksView
+import com.example.motu.ui.main.home.ui_items.domestic.DomesticStocksRoute
 
 
 @Composable
-fun HomeView(listState: LazyListState) {
+fun HomeView(
+    listState: LazyListState,
+    domesticSection: @Composable () -> Unit
+) {
     val viewModel: HomeViewModel = hiltViewModel()
 
     LazyColumn(
@@ -23,7 +28,7 @@ fun HomeView(listState: LazyListState) {
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 12.dp)
     ) {
         item { AssetInfo() }
-        item { DomesticHoldingStocks() }
+        item { domesticSection() }
         item { ForeignHoldingStocks() }
         item { ShortSellingRanking() }
     }

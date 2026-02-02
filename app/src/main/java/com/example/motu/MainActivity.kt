@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.motu.ui.navigation.MotuApp
+import com.example.motu.ui.navigation.NavigateManager
 import com.example.motu.ui.theme.MotuTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MotuTheme {
-                MotuApp()
+                NavigateManager()
             }
         }
     }

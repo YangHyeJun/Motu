@@ -57,7 +57,6 @@ fun AssetInfo(
                     .padding(horizontal = 20.dp, vertical = 16.dp),
                 verticalAlignment = Alignment.Bottom
             ) {
-                // LEFT
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -90,7 +89,6 @@ fun AssetInfo(
                     }
                 }
 
-                // RIGHT
                 Column(
                     horizontalAlignment = Alignment.End,
                     modifier = Modifier.wrapContentWidth()
@@ -102,7 +100,7 @@ fun AssetInfo(
                         barGap = 6.dp,
                         barCorner = 5.dp,
                         modifier = Modifier
-                            .width(128.dp)   // 고정 폭으로 깨짐 방지
+                            .width(128.dp)
                             .height(48.dp)
                     )
                     Spacer(Modifier.height(8.dp))
