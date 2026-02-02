@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.0"
+agp = "8.9.1"
 coreSplashscreen = "1.0.1"
 kotlin = "2.0.21"
 coreKtx = "1.10.1"
@@ -10,6 +10,7 @@ lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2024.09.00"
 hilt = "2.51.1"
+navigationeventAndroid = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+androidx-navigationevent-android = { group = "androidx.navigationevent", name = "navigationevent-android", version.ref = "navigationeventAndroid" }
 
 [plugins]
 hilt = { id = "com.google.dagger.hilt.android", version = "2.51.1" }
