@@ -47,8 +47,6 @@ dependencies {
     // Compose에서 ViewModel과 Hilt 연동할 경우
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
-    // navigation Event 추가
-    implementation(libs.androidx.navigationevent.android)
     // 나머지 의존성
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
