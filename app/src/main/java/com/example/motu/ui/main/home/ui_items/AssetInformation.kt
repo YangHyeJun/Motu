@@ -1,4 +1,4 @@
-package com.example.motu.common.ui
+package com.example.motu.ui.main.home.ui_items
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.border
