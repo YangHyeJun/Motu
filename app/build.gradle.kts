@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.example.motu"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.motu"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -40,14 +40,16 @@ android {
 }
 
 dependencies {
-    // ✅ Hilt 관련 의존성 추가
+    // Hilt 관련 의존성 추가
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
-    // ✅ (옵션) Compose에서 ViewModel과 Hilt 연동할 경우
+    // Compose에서 ViewModel과 Hilt 연동할 경우
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
-    // 👇 나머지 기존 의존성은 그대로 유지
+    // navigation Event 추가
+    implementation(libs.androidx.navigationevent.android)
+    // 나머지 의존성
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
