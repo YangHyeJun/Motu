@@ -1,4 +1,4 @@
-package com.example.motu.ui.main.home.ui_items.domestic
+package com.example.motu.ui.main.home.ui_items.foreign
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,16 +9,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DomesticStocksViewModel @Inject constructor() : ViewModel() {
-
+class ForeignStocksViewModel @Inject constructor() : ViewModel() {
     private val _navigationEvent =
-        MutableSharedFlow<DomesticNavigationEvent>()
+        MutableSharedFlow<ForeignNavigationEvent>()
     val navigationEvent = _navigationEvent.asSharedFlow()
 
     fun goDetail() {
         viewModelScope.launch {
-            _navigationEvent.emit(DomesticNavigationEvent.GoDomesticStocksDetail)
+            _navigationEvent.emit(ForeignNavigationEvent.GoForeignStocksDetail)
         }
     }
 }
-

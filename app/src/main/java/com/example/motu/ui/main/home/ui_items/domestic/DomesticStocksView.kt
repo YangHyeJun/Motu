@@ -27,9 +27,7 @@ fun DomesticHoldingStocksView(
             title = "국내 보유주식",
             showMoreButton = true,
             resultTitle = "총 4종목",
-            moreButtonOnClick = {
-                viewModel.goDetail()
-            },
+            moreButtonOnClick = { viewModel.goDetail() },
             resultContent = "49,124,000원"
         ) {
             StockRow("삼성전자", "005930", "10주", "74,500원", "▲ +3.4%", amount = "9,384,000원")

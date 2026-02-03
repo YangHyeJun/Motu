@@ -1,4 +1,4 @@
-package com.example.motu.ui.main.home.ui_items.domestic
+package com.example.motu.ui.main.home.ui_items.foreign
 
 import com.example.motu.conf.AppNavigationEvent
 
@@ -9,6 +9,6 @@ import com.example.motu.conf.AppNavigationEvent
  * - 실제 NavController 호출은 View에서만 처리
  */
 
-sealed interface DomesticNavigationEvent : AppNavigationEvent {
-    data object GoDomesticStocksDetail : DomesticNavigationEvent
+sealed interface ForeignNavigationEvent : AppNavigationEvent {
+    data object GoForeignStocksDetail : ForeignNavigationEvent
 }
